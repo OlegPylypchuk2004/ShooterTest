@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _rotationForce;
+    [SerializeField] private float _mouseSensitivity;
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private Transform _headTransform;
 
@@ -14,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        Time.fixedDeltaTime = (float)1 / (float)60;
+        Time.fixedDeltaTime = 1f / 60f;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -42,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
         _moveDirection = ((transform.forward * verticalInput) + (transform.right * horizontalInput)).normalized;
 
-        _rotationY += Input.GetAxisRaw("Mouse X");
+        _rotationY += Input.GetAxisRaw("Mouse X") * _mouseSensitivity;
         transform.rotation = Quaternion.Euler(0, _rotationY, 0);
     }
 

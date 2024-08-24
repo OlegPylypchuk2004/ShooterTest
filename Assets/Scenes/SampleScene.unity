@@ -1142,6 +1142,7 @@ MonoBehaviour:
   _speed: 15
   _rotationSpeed: 10
   _rotationForce: 5
+  _mouseSensitivity: 1.5
   _characterController: {fileID: 1143816166}
   _headTransform: {fileID: 327003900}
 --- !u!1 &1249641069
