@@ -1,50 +1,41 @@
+using System.Collections;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [Header("Weapon Tilt Settings")]
-    [SerializeField] private float weaponMaxTiltAngle; // Максимальний кут нахилу для зброї
-    [SerializeField] private float weaponTiltSpeed; // Швидкість зміни кута для зброї
+    private bool _isCanAttack;
 
-    [Header("Secondary Transform Tilt Settings")]
-    [SerializeField] private Transform secondaryTransform; // Інший трансформ для обертання
-    [SerializeField] private float secondaryMaxTiltAngle; // Максимальний кут нахилу для другого трансформу
-    [SerializeField] private float secondaryTiltSpeed; // Швидкість зміни кута для другого трансформу
-
-    private float mouseInputX;
-    private float horizontalInput;
-
-    void Update()
+    private void Awake()
     {
-        // Отримуємо вхідні дані миші по осі X
-        mouseInputX = Input.GetAxisRaw("Mouse X");
-        // Отримуємо горизонтальний вхід (наприклад, для WASD чи стрілок)
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        _isCanAttack = true;
+    }
 
-        // Обчислюємо цільовий кут нахилу по осі Y для зброї
-        float targetTiltY = mouseInputX * weaponMaxTiltAngle;
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
+    }
 
-        // Обчислюємо цільовий кут нахилу по осі Y для другого трансформу
-        float targetSecondaryTiltY = horizontalInput * -1 * secondaryMaxTiltAngle;
+    private void Attack()
+    {
+        if (_isCanAttack)
+        {
+            StartCoroutine(A());
+        }
+    }
 
-        // Отримуємо поточний локальний кут обертання для зброї
-        Vector3 currentRotation = transform.localEulerAngles;
-        if (currentRotation.y > 180f) currentRotation.y -= 360f;
+    private IEnumerator A()
+    {
+        _isCanAttack = false;
+        transform.localPosition = new Vector3(0f, -0.1f, 0f);
 
-        // Інтерполюємо між поточним і цільовим кутом по осі Y для зброї
-        float smoothTiltY = Mathf.Lerp(currentRotation.y, targetTiltY, Time.deltaTime * weaponTiltSpeed);
-        smoothTiltY = Mathf.Clamp(smoothTiltY, -weaponMaxTiltAngle, weaponMaxTiltAngle);
+        yield return new WaitForSeconds(0.2f);
 
-        // Оновлюємо локальний кут обертання зброї тільки по осі Y
-        transform.localEulerAngles = new Vector3(currentRotation.x, smoothTiltY, currentRotation.z);
+        _isCanAttack = true;
+        transform.localPosition = new Vector3(0f, 0f, 0f);
 
-        // Те ж саме для іншого трансформу
-        Vector3 secondaryRotation = secondaryTransform.localEulerAngles;
-        if (secondaryRotation.y > 180f) secondaryRotation.y -= 360f;
-
-        float smoothSecondaryTiltY = Mathf.Lerp(secondaryRotation.y, targetSecondaryTiltY, Time.deltaTime * secondaryTiltSpeed);
-        smoothSecondaryTiltY = Mathf.Clamp(smoothSecondaryTiltY, -secondaryMaxTiltAngle, secondaryMaxTiltAngle);
-
-        secondaryTransform.localEulerAngles = new Vector3(secondaryRotation.x, smoothSecondaryTiltY, secondaryRotation.z);
+        yield return new WaitForSeconds(1.5f);
     }
 }

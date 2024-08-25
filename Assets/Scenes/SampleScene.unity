@@ -1863,6 +1863,7 @@ GameObject:
   m_Component:
   - component: {fileID: 821292165}
   - component: {fileID: 821292166}
+  - component: {fileID: 821292167}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -1937,6 +1938,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &821292167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821292164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a838f04cf84661545871c1375aacf81d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
