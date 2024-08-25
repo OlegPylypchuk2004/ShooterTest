@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
+
     private bool _isCanAttack;
 
     private void Awake()
@@ -12,7 +14,7 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             Attack();
         }
@@ -29,13 +31,10 @@ public class Weapon : MonoBehaviour
     private IEnumerator A()
     {
         _isCanAttack = false;
-        transform.localPosition = new Vector3(0f, -0.1f, 0f);
+        _animator.SetTrigger("Fire");
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1f);
 
         _isCanAttack = true;
-        transform.localPosition = new Vector3(0f, 0f, 0f);
-
-        yield return new WaitForSeconds(1.5f);
     }
 }
