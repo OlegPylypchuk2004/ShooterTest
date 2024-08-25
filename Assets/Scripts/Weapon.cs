@@ -4,6 +4,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
+    [SerializeField] private CameraShaker _cameraShaker;
 
     private bool _isCanAttack;
 
@@ -32,6 +33,8 @@ public class Weapon : MonoBehaviour
     {
         _isCanAttack = false;
         _animator.SetTrigger("Fire");
+
+        _cameraShaker.Shake();
 
         yield return new WaitForSeconds(1f);
 
