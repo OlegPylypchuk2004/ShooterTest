@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private float _shootDelay;
     [SerializeField] private Animator _animator;
     [SerializeField] private CameraShaker _cameraShaker;
 
@@ -36,7 +37,7 @@ public class Weapon : MonoBehaviour
 
         _cameraShaker.Shake();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_shootDelay);
 
         _isCanAttack = true;
     }
