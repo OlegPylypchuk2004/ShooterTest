@@ -37,8 +37,21 @@ public class Weapon : MonoBehaviour
 
         _cameraShaker.Shake();
 
+        PerformRaycast();
+
         yield return new WaitForSeconds(_shootDelay);
 
         _isCanAttack = true;
+    }
+
+    private void PerformRaycast()
+    {
+        Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+        Ray ray = Camera.main.ScreenPointToRay(screenCenter);
+
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            Debug.Log(hit.collider.name);
+        }
     }
 }
