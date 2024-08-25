@@ -333,7 +333,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
-  - {fileID: 2100000, guid: f4a355ae88524bd4eb94af49b4aa45b8, type: 2}
+  - {fileID: 2100000, guid: e9c093a1719da6f479138d219cd5df6e, type: 2}
+  - {fileID: 2100000, guid: 9fd9f2794dd5f6141bc8b6bc73939654, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -346,7 +347,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -954,7 +955,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 1
+    m_SubmeshIndex: 2
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -1039,7 +1040,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 1
+    m_SubmeshIndex: 2
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -1073,7 +1074,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 1
+    m_SubmeshIndex: 2
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -1158,7 +1159,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 1
+    m_SubmeshIndex: 2
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -1795,7 +1796,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1338144877}
-  m_VersionIndex: 2228
+  m_VersionIndex: 2236
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2214,11 +2215,21 @@ Mesh:
       m_Extent: {x: 12.5, y: 2.25, z: 12.5}
   - serializedVersion: 2
     firstByte: 492
-    indexCount: 30
+    indexCount: 6
     topology: 0
     baseVertex: 0
     firstVertex: 80
-    vertexCount: 20
+    vertexCount: 4
+    localAABB:
+      m_Center: {x: 0, y: 0.5, z: 0}
+      m_Extent: {x: 12, y: 0, z: 12}
+  - serializedVersion: 2
+    firstByte: 504
+    indexCount: 24
+    topology: 0
+    baseVertex: 0
+    firstVertex: 84
+    vertexCount: 16
     localAABB:
       m_Center: {x: 0, y: 2.25, z: 0}
       m_Extent: {x: 12, y: 1.75, z: 12}
