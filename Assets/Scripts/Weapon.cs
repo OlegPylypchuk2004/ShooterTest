@@ -4,6 +4,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private float _shootDelay;
+    [SerializeField] private int _damage;
     [SerializeField] private Animator _animator;
     [SerializeField] private CameraShaker _cameraShaker;
 
@@ -51,7 +52,10 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            Debug.Log(hit.collider.name);
+            if (hit.collider.TryGetComponent(out Health health))
+            {
+                health.Damage(_damage);
+            }
         }
     }
 }

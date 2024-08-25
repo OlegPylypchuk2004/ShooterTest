@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootDelay: 0.75
+  _damage: 25
   _animator: {fileID: 102424365}
   _cameraShaker: {fileID: 963194229}
 --- !u!95 &102424365
@@ -277,7 +278,7 @@ GameObject:
   - component: {fileID: 119912563}
   - component: {fileID: 119912562}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3030,6 +3031,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605908678192600520, guid: 14b11f3111706664ba52aa1b768804a0, type: 3}
       propertyPath: target
+      value: 
+      objectReference: {fileID: 1143816165}
+    - target: {fileID: 4605908678192600520, guid: 14b11f3111706664ba52aa1b768804a0, type: 3}
+      propertyPath: _playerTarget
       value: 
       objectReference: {fileID: 1143816165}
     - target: {fileID: 7206250396178798504, guid: 14b11f3111706664ba52aa1b768804a0, type: 3}
